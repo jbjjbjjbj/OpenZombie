@@ -9,8 +9,8 @@ var turn = 0;
 
 var markedPos = {x : -1, y : -1};
 
-mapLenght = 1000;
-mapHeight = 1000;
+mapLenght = 100;
+mapHeight = 100;
 
 entities = [];
 
@@ -63,6 +63,9 @@ function clearGrid () {
 var mapArray = new Array(mapHeight);
 for(i = 0; i < mapHeight; i++){
   mapArray[i] = new Array(mapLenght);
+  for(j = 0; j < mapLenght; j++){
+    mapArray[i][j] = [];
+  }
 }
 
 
@@ -73,16 +76,17 @@ for(i = 0; i < mapHeight; i++){
 
 function newEnemy(x, y){
   var enemy = new Enemy(x, y, "E");
-  entities.push(player);
+  entities.push(enemy);
   mapArray[x][y].push(entities.length - 1);
 
 }
 
 player = new Player(50, 50);
 entities.push(player);
-mapArray[player.y, player.x].push(entities.length - 1);
+mapArray[player.y][ player.x].push(entities.length - 1);
 
 newEnemy(52, 52);
+newEnemy(51, 51);
 
 
 console.log(mapArray);
@@ -101,10 +105,12 @@ function drawInterval(startX, startY, endX, endY){
   let currentEntity;
   for(y = startY; y < endY; y++){
     for(x = startX; x < endX; x++){
-      currentEntity = mapArray[y][x];
-      if(typeof currentEntity !== "undefined"){
-        console.log(currentEntity);
-        grid[currentEntity.y - startY][currentEntity.x - startX].innerHTML = currentEntity.repr;
+      for(j = 0; j < mapArray[y][x].length; j++){
+        currentEntity = entities[mapArray[y][x][j]];
+        if(typeof currentEntity !== "undefined"){
+          console.log(currentEntity);
+          grid[currentEntity.y - startY][currentEntity.x - startX].innerHTML = currentEntity.repr;
+        }
       }
     }
   }
