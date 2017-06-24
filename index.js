@@ -11,6 +11,7 @@ function initGrid (x, y) {
     grid[i] = [];
     for (var j = 0; j < x; j++) {
       grid[i][j] = row.insertCell(-1);
+      grid[i][j].style.backgroundColor = "#6b6b6b";
     }
   }
 }
@@ -29,11 +30,5 @@ class Entity {
 	move(x, y) {
 		this.x += x;
 		this.y += y;
-	}
-}
-
-class Player extends Entity {
-	constructor(x,y) {
-		super(x,y);
 	}
 }
