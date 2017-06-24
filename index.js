@@ -20,22 +20,11 @@ initGrid(gridSize.x, gridSize.y);
 
 console.log(grid);
 
-class Entity {
-	constructor(x,y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	move(x, y) {
-		this.x += x;
-		this.y += y;
-	}
-}
+player = new Player(1, 2);
 
 function keyPress(e) {
 
     e = e || window.event;
-    alert(e.keyCode);
 
     if (e.keyCode = 87) {
       //Up
