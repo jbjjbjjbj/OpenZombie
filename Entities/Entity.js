@@ -5,6 +5,7 @@ class Entity {
 		this.oldx = -1;
 		this.oldy = -1;
 		this.repr = repr;
+		
 	}
 
 	move(x, y) {
@@ -20,6 +21,6 @@ class Entity {
 
 		this.oldx = this.x;
 		this.oldy = this.y;
-		
+
 	}
 }

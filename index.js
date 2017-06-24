@@ -9,8 +9,10 @@ var turn = 0;
 
 var markedPos = {x : -1, y : -1};
 
-mapLenght = 100;
-mapHeight = 100;
+mapLenght = 1000;
+mapHeight = 1000;
+
+entities = [];
 
 //
 // GRID
@@ -58,9 +60,9 @@ function clearGrid () {
   }
 }
 
-var entities = new Array(mapHeight);
+var mapArray = new Array(mapHeight);
 for(i = 0; i < mapHeight; i++){
-  entities[i] = new Array(mapLenght);
+  mapArray[i] = new Array(mapLenght);
 }
 
 
@@ -69,13 +71,21 @@ for(i = 0; i < mapHeight; i++){
 //CLASS INIT
 //
 
+function newEnemy(x, y){
+  var enemy = new Enemy(x, y, "E");
+  entities.push(player);
+  mapArray[x][y].push(entities.length - 1);
+
+}
+
 player = new Player(50, 50);
-entities[player.y][player.x] = player;
+entities.push(player);
+mapArray[player.y, player.x].push(entities.length - 1);
 
-entities[52][52] = new Enemy(52, 52, "E");
+newEnemy(52, 52);
 
 
-console.log(entities);
+console.log(mapArray);
 //
 //TURN STUFF
 //
@@ -91,7 +101,7 @@ function drawInterval(startX, startY, endX, endY){
   let currentEntity;
   for(y = startY; y < endY; y++){
     for(x = startX; x < endX; x++){
-      currentEntity = entities[y][x];
+      currentEntity = mapArray[y][x];
       if(typeof currentEntity !== "undefined"){
         console.log(currentEntity);
         grid[currentEntity.y - startY][currentEntity.x - startX].innerHTML = currentEntity.repr;
