@@ -2,21 +2,32 @@ console.log("Welcome to OpenZombie");
 
 const gridSize = {x: 10, y: 10};
 var gameTable = document.getElementById("gameTable");
+var grid = [];
 
 function initGrid (x, y) {
   var row;
   for (var i = 0; i < y; i++) {
     row = gameTable.insertRow(0);
+    grid[i] = [];
     for (var j = 0; j < x; j++) {
-      row.insertCell(-1);
+      grid[i][j] = row.insertCell(-1);
     }
   }
 }
 
 initGrid(gridSize.x, gridSize.y);
 
+console.log(grid);
 
 
-player = new Player(1,2);
+class Entity {
+	constructor(x,y) {
+		this.x = x;
+		this.y = y;
+	}
 
-alert(player.getX());
+	move(x, y) {
+		this.x += x;
+		this.y += y;
+	}
+}
