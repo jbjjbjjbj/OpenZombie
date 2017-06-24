@@ -4,14 +4,21 @@ const gridSize = {x: 10, y: 10};
 var gameTable = document.getElementById("gameTable");
 var grid = [];
 
-function initGrid (x, y) {
-  var row;
-  for (var i = 0; i < y; i++) {
+function initGrid (maXx, maXy) {
+  let row;
+  let cell;
+  for (var y = 0; y < maXy; y++) {
     row = gameTable.insertRow(0);
-    grid[i] = [];
-    for (var j = 0; j < x; j++) {
-      grid[i][j] = row.insertCell(-1);
-      grid[i][j].style.backgroundColor = "#6b6b6b";
+    grid[y] = [];
+    for (var x = 0; x < maXx; x++) {
+      grid[y][x] = row.insertCell(-1);
+      cell = grid[y][x];
+      cell.style.backgroundColor = "#6b6b6b";
+      cell.x = x;
+      cell.y = y;
+      cell.addEventListener("click", function (e) {
+        console.log(e.target.x + "," + e.target.y);
+      });
     }
   }
 }
