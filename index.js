@@ -1,5 +1,9 @@
 console.log("Welcome to OpenZombie");
 
+//Farver
+var noMark = "#6b6b6b";
+var marked = "#870101";
+
 var turn = 0;
 
 
@@ -21,17 +25,17 @@ function initGrid (maXx, maXy) {
     for (var x = 0; x < maXx; x++) {
       grid[y][x] = row.insertCell(-1);
       cell = grid[y][x];
-      cell.style.backgroundColor = "#6b6b6b";
+      cell.style.backgroundColor = noMark;
       cell.x = x;
       cell.y = y;
       cell.addEventListener("click", function (e) {
         console.log(e.target.x + "," + e.target.y);
         if(markedPos.x !== -1 && markedPos.y !== -1){
-          grid[markedPos.y][ markedPos.x ].style.backgroundColor = "#6b6b6b";
+          grid[markedPos.y][ markedPos.x ].style.backgroundColor = noMark;
         }
 
         markedPos = {x : e.target.x, y : e.target.y}
-        grid[markedPos.y][ markedPos.x   ].style.backgroundColor = "#870101";
+        grid[markedPos.y][ markedPos.x   ].style.backgroundColor = marked;
 
 
       });
