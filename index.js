@@ -11,6 +11,7 @@ function initGrid (x, y) {
     grid[i] = [];
     for (var j = 0; j < x; j++) {
       grid[i][j] = row.insertCell(-1);
+      grid[i][j].style.backgroundColor = "#6b6b6b";
     }
   }
 }
