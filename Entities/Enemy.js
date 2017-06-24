@@ -1,5 +1,6 @@
 class Enemy extends Entity {
 	constructor(x, y, player) {
+		super(x,y,'E');
 		this.x = x;
 		this.y = y;
 		this.player = player;
