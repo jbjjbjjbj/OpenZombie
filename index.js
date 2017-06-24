@@ -50,9 +50,14 @@ function addTurn(turns){
 function nextTurn(){
   //Check if next turn is posible
   addTurn(1);
+  console.log("New turn");
 }
 
 addTurn(0);
+
+document.getElementById("newTurn").addEventListener("click", function () {
+  nextTurn();
+});
 
 //
 // KEYBOARD EVENTS
