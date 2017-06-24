@@ -18,3 +18,20 @@ function initGrid (x, y) {
 initGrid(gridSize.x, gridSize.y);
 
 console.log(grid);
+
+
+class Entity {
+	constructor(x,y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	move(x, y) {
+		this.x += x;
+		this.y += y;
+	}
+}
+
+class Player extends Entity {
+
+}
