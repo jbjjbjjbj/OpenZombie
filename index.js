@@ -32,11 +32,20 @@ initGrid(gridSize.x, gridSize.y);
 
 console.log(grid);
 
+function clearGrid () {
+  for (var y = 0; y < grid.length; y++) {
+    for (var x = 0; x < grid[y].length; x++) {
+      grid[y][x].innerHTML = "";
+    }
+  }
+}
+
+var entities = [];
+
 //
 //CLASS INIT
 //
-
-player = new Player(1, 2);
+entities.push(new Player(1, 2));
 
 //
 //TURN STUFF
@@ -50,7 +59,15 @@ function addTurn(turns){
 function nextTurn(){
   //Check if next turn is posible
   addTurn(1);
+
   console.log("New turn");
+
+  clearGrid();
+  let currentEntity;
+  for (var i = 0; i < entities.length; i++) {
+    currentEntity = entities[i];
+    grid[currentEntity.y][currentEntity.x].innerHTML = "P";
+  }
 }
 
 addTurn(0);
