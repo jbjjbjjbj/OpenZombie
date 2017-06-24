@@ -2,6 +2,9 @@ console.log("Welcome to OpenZombie");
 
 var turn = 0;
 
+
+var markedPos = {x : -1, y : -1};
+
 //
 // GRID
 //
@@ -23,6 +26,14 @@ function initGrid (maXx, maXy) {
       cell.y = y;
       cell.addEventListener("click", function (e) {
         console.log(e.target.x + "," + e.target.y);
+        if(markedPos.x !== -1 && markedPos.y !== -1){
+          grid[markedPos.y][ markedPos.x ].style.backgroundColor = "#6b6b6b";
+        }
+
+        markedPos = {x : e.target.x, y : e.target.y}
+        grid[markedPos.y][ markedPos.x   ].style.backgroundColor = "#870101";
+
+
       });
     }
   }
