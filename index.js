@@ -27,19 +27,20 @@ initGrid(gridSize.x, gridSize.y);
 
 console.log(grid);
 
+player = new Player(1, 2);
 
-class Entity {
-	constructor(x,y) {
-		this.x = x;
-		this.y = y;
-	}
+function keyPress(e) {
 
-	move(x, y) {
-		this.x += x;
-		this.y += y;
-	}
+    e = e || window.event;
+
+    if (e.keyCode = 87) {
+      //Up
+    } else if (e.keyCode = 83) {
+      //Down
+    } else if (e.keybode = 68) {
+      //Right
+    } else if (e.keyCode = 65) {
+      //Left
+    }
 }
-
-class Player extends Entity {
-
-}
+document.onkeydown = keyPress;
