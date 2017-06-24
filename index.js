@@ -63,13 +63,19 @@ for(i = 0; i < mapHeight; i++){
   entities[i] = new Array(mapLenght);
 }
 
-console.log(entities);
+
 
 //
 //CLASS INIT
 //
-entities[2][1] = new Player(1, 2);
 
+player = new Player(50, 50);
+entities[player.y][player.x] = player;
+
+entities[52][52] = new Enemy(52, 52, "E");
+
+
+console.log(entities);
 //
 //TURN STUFF
 //
@@ -86,9 +92,9 @@ function drawInterval(startX, startY, endX, endY){
   for(y = startY; y < endY; y++){
     for(x = startX; x < endX; x++){
       currentEntity = entities[y][x];
-      console.log(x + "  " + y + currentEntity)
       if(typeof currentEntity !== "undefined"){
-        grid[currentEntity.y][currentEntity.x].innerHTML = "P";
+        console.log(currentEntity);
+        grid[currentEntity.y - startY][currentEntity.x - startX].innerHTML = currentEntity.repr;
       }
     }
   }
@@ -101,7 +107,7 @@ function nextTurn(){
   console.log("New turn");
 
 
-  drawInterval(0, 0, 11, 11);
+  drawInterval(player.x - 5, player.y - 5, player.x + 5, player.y + 5);
 
 
 
