@@ -14,3 +14,7 @@ function initGrid (x, y) {
 }
 
 initGrid(gridSize.x, gridSize.y);
+
+
+
+player = new Player();
