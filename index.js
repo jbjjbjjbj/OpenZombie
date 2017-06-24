@@ -1,5 +1,8 @@
 console.log("Welcome to OpenZombie");
 
+//
+// GRID
+//
 const gridSize = {x: 10, y: 10};
 var gameTable = document.getElementById("gameTable");
 var grid = [];
@@ -27,7 +30,17 @@ initGrid(gridSize.x, gridSize.y);
 
 console.log(grid);
 
+//
+//CLASS INIT
+//
+
 player = new Player(1, 2);
+
+
+
+//
+// KEYBOARD EVENTS
+//
 
 function keyPress(e) {
 
