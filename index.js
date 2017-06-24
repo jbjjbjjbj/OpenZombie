@@ -1,5 +1,7 @@
 console.log("Welcome to OpenZombie");
 
+turn = 0;
+
 //
 // GRID
 //
@@ -36,7 +38,15 @@ console.log(grid);
 
 player = new Player(1, 2);
 
-
+//
+//TURN STUFF
+//
+var turnCounter = document.getElementById("turnCounter");
+function addTurn(turns){
+  turn += turns;
+  turnCounter.innerHTML = turn.toString();
+}
+addTurn(0);
 
 //
 // KEYBOARD EVENTS
