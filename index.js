@@ -15,7 +15,7 @@ mapHeight = 100;
 //
 // GRID
 //
-const gridSize = {x: 10, y: 10};
+const gridSize = {x: 11, y: 11};
 var gameTable = document.getElementById("gameTable");
 var grid = [];
 
