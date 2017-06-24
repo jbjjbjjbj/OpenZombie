@@ -46,6 +46,12 @@ function addTurn(turns){
   turn += turns;
   turnCounter.innerHTML = turn.toString();
 }
+
+function nextTurn(){
+  //Check if next turn is posible
+  addTurn(1);
+}
+
 addTurn(0);
 
 //
@@ -56,14 +62,16 @@ function keyPress(e) {
 
     e = e || window.event;
 
-    if (e.keyCode = 87) {
+    if (e.keyCode === 87) {
       //Up
-    } else if (e.keyCode = 83) {
+    } else if (e.keyCode === 83) {
       //Down
-    } else if (e.keybode = 68) {
+    } else if (e.keyCode === 68) {
       //Right
-    } else if (e.keyCode = 65) {
+    } else if (e.keyCode === 65) {
       //Left
+    } else if (e.keyCode === 32){
+      nextTurn();
     }
 }
 document.onkeydown = keyPress;
