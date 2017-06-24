@@ -1,6 +1,6 @@
 console.log("Welcome to OpenZombie");
 
-turn = 0;
+var turn = 0;
 
 //
 // GRID
@@ -79,4 +79,4 @@ function keyPress(e) {
       nextTurn();
     }
 }
-document.onkeydown = keyPress;
+document.onkeypress = keyPress;
