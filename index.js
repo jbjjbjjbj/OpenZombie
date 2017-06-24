@@ -9,6 +9,9 @@ var turn = 0;
 
 var markedPos = {x : -1, y : -1};
 
+mapLenght = 100;
+mapHeight = 100;
+
 //
 // GRID
 //
@@ -55,12 +58,17 @@ function clearGrid () {
   }
 }
 
-var entities = [];
+var entities = new Array(mapHeight);
+for(i = 0; i < mapHeight; i++){
+  entities[i] = new Array(mapLenght);
+}
+
+console.log(entities);
 
 //
 //CLASS INIT
 //
-entities.push(new Player(1, 2));
+entities[2][1] = new Player(1, 2);
 
 //
 //TURN STUFF
@@ -71,18 +79,32 @@ function addTurn(turns){
   turnCounter.innerHTML = turn.toString();
 }
 
+function drawInterval(startX, startY, endX, endY){
+  clearGrid();
+
+  let currentEntity;
+  for(y = startY; y < endY; y++){
+    for(x = startX; x < endX; x++){
+      currentEntity = entities[y][x];
+      console.log(x + "  " + y + currentEntity)
+      if(typeof currentEntity !== "undefined"){
+        grid[currentEntity.y][currentEntity.x].innerHTML = "P";
+      }
+    }
+  }
+}
+
 function nextTurn(){
   //Check if next turn is posible
   addTurn(1);
 
   console.log("New turn");
 
-  clearGrid();
-  let currentEntity;
-  for (var i = 0; i < entities.length; i++) {
-    currentEntity = entities[i];
-    grid[currentEntity.y][currentEntity.x].innerHTML = "P";
-  }
+
+  drawInterval(0, 0, 11, 11);
+
+
+
 }
 
 addTurn(0);
