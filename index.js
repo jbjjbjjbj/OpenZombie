@@ -17,4 +17,6 @@ initGrid(gridSize.x, gridSize.y);
 
 
 
-player = new Player();
+player = new Player(1,2);
+
+alert(player.getX());

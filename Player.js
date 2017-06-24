@@ -1,5 +1,7 @@
-class Player {
-  constructor () {
-    alert("Het")
+class Player extends Entity{
+  constructor (x, y) {
+
   }
+
+
 }
