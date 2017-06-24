@@ -32,3 +32,24 @@ class Entity {
 		this.y += y;
 	}
 }
+
+
+document.onkeydown = keyPress;
+function keyPress(e) {
+
+    e = e || window.event;
+
+    alert(e.keyCode);
+
+    if(e.keyCode = 87){
+      //Up
+    }else if (e.keyCode = 83) {
+      //Down
+    }else if (e.keybode = 68) {
+      //Right
+    }else if (e.keyCode = 65) {
+      //Left
+    }
+
+
+}
